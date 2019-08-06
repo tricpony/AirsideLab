@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MRZViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var outputLabel: UILabel!
     @IBOutlet weak var parseCanvas: UIView!
@@ -19,7 +19,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var firstname = ""
     var lastname = ""
     var gitHubUsers = [User]()
-
+    @objc dynamic var servicePassed = false     // for unit test
+    
     // must hang on to the var here or else it gets released and the service fails
     var sessionManager: SessionManager?
 
@@ -49,6 +50,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let fetchedUsers = root.users
                 self?.gitHubUsers = fetchedUsers
                 self?.tableView.reloadData()
+                self?.servicePassed = true
             case .failure(let error):
                 print("Service Failed: \(String(describing: error))")
             }

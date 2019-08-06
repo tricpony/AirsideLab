@@ -9,12 +9,9 @@
 /* Begin PBXBuildFile section */
 		38479B94FF4D7EF8F8B199BA /* Pods_AirsideLab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F9FCC6BDEBABCD0B4F70C3 /* Pods_AirsideLab.framework */; };
 		6D06B5ECEDD0F5902E56A5C8 /* libPods-AirsideLabTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF6EAE94CEAF6CAC498CC7B /* libPods-AirsideLabTests.a */; };
-		D1C2E3C822F86364001A4179 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2E3C722F86364001A4179 /* AppDelegate.swift */; };
-		D1C2E3CA22F86364001A4179 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2E3C922F86364001A4179 /* ViewController.swift */; };
 		D1C2E3CD22F86364001A4179 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C2E3CB22F86364001A4179 /* Main.storyboard */; };
 		D1C2E3CF22F86367001A4179 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1C2E3CE22F86367001A4179 /* Assets.xcassets */; };
 		D1C2E3D222F86367001A4179 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C2E3D022F86367001A4179 /* LaunchScreen.storyboard */; };
-		D1C2E3DD22F86367001A4179 /* AirsideLabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2E3DC22F86367001A4179 /* AirsideLabTests.swift */; };
 		D1C2E3F122F8B2D3001A4179 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2E3F022F8B2D3001A4179 /* User.swift */; };
 		D1C2E3F922F8C396001A4179 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2E3F422F8C396001A4179 /* ServiceManager.swift */; };
 		D1C2E3FA22F8C396001A4179 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2E3F522F8C396001A4179 /* API.swift */; };
@@ -23,6 +20,10 @@
 		D1C2E3FF22F8CE11001A4179 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2E3FE22F8CE11001A4179 /* Root.swift */; };
 		D1C2E40222F914C3001A4179 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2E40122F914C3001A4179 /* URLImage.swift */; };
 		D1C2E40422F91BCC001A4179 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2E40322F91BCC001A4179 /* UITableViewCell+Extension.swift */; };
+		D1C2E40622F9BA29001A4179 /* FetchURLImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2E40522F9BA29001A4179 /* FetchURLImageTests.swift */; };
+		D1C2E40D22F9C072001A4179 /* MRZViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2E40A22F9C071001A4179 /* MRZViewController.swift */; };
+		D1C2E40E22F9C072001A4179 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2E40C22F9C072001A4179 /* AppDelegate.swift */; };
+		D1C2E41022F9C0B6001A4179 /* MRZViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2E40F22F9C0B6001A4179 /* MRZViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,14 +43,11 @@
 		B0F9FCC6BDEBABCD0B4F70C3 /* Pods_AirsideLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirsideLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA2E2563B13E275E0801209A /* Pods-AirsideLabTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirsideLabTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AirsideLabTests/Pods-AirsideLabTests.release.xcconfig"; sourceTree = "<group>"; };
 		D1C2E3C422F86364001A4179 /* AirsideLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirsideLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1C2E3C722F86364001A4179 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D1C2E3C922F86364001A4179 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D1C2E3CC22F86364001A4179 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1C2E3CE22F86367001A4179 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1C2E3D122F86367001A4179 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1C2E3D322F86367001A4179 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1C2E3D822F86367001A4179 /* AirsideLabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirsideLabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1C2E3DC22F86367001A4179 /* AirsideLabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirsideLabTests.swift; sourceTree = "<group>"; };
 		D1C2E3DE22F86367001A4179 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1C2E3F022F8B2D3001A4179 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D1C2E3F422F8C396001A4179 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
@@ -59,6 +57,10 @@
 		D1C2E3FE22F8CE11001A4179 /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
 		D1C2E40122F914C3001A4179 /* URLImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		D1C2E40322F91BCC001A4179 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		D1C2E40522F9BA29001A4179 /* FetchURLImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchURLImageTests.swift; sourceTree = "<group>"; };
+		D1C2E40A22F9C071001A4179 /* MRZViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRZViewController.swift; sourceTree = "<group>"; };
+		D1C2E40C22F9C072001A4179 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D1C2E40F22F9C0B6001A4179 /* MRZViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZViewControllerTests.swift; sourceTree = "<group>"; };
 		E640087E17B0187004FA17F5 /* Pods-AirsideLab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirsideLab.release.xcconfig"; path = "Pods/Target Support Files/Pods-AirsideLab/Pods-AirsideLab.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,10 +116,10 @@
 		D1C2E3C622F86364001A4179 /* AirsideLab */ = {
 			isa = PBXGroup;
 			children = (
+				D1C2E40B22F9C072001A4179 /* Application */,
+				D1C2E40922F9C071001A4179 /* MRZ_GitHub */,
 				D1C2E3F222F8C396001A4179 /* Common */,
 				D1C2E3E722F879C3001A4179 /* Model */,
-				D1C2E3C722F86364001A4179 /* AppDelegate.swift */,
-				D1C2E3C922F86364001A4179 /* ViewController.swift */,
 				D1C2E3CB22F86364001A4179 /* Main.storyboard */,
 				D1C2E3CE22F86367001A4179 /* Assets.xcassets */,
 				D1C2E3D022F86367001A4179 /* LaunchScreen.storyboard */,
@@ -129,8 +131,9 @@
 		D1C2E3DB22F86367001A4179 /* AirsideLabTests */ = {
 			isa = PBXGroup;
 			children = (
-				D1C2E3DC22F86367001A4179 /* AirsideLabTests.swift */,
 				D1C2E3DE22F86367001A4179 /* Info.plist */,
+				D1C2E40522F9BA29001A4179 /* FetchURLImageTests.swift */,
+				D1C2E40F22F9C0B6001A4179 /* MRZViewControllerTests.swift */,
 			);
 			path = AirsideLabTests;
 			sourceTree = "<group>";
@@ -187,6 +190,22 @@
 				D1C2E40122F914C3001A4179 /* URLImage.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		D1C2E40922F9C071001A4179 /* MRZ_GitHub */ = {
+			isa = PBXGroup;
+			children = (
+				D1C2E40A22F9C071001A4179 /* MRZViewController.swift */,
+			);
+			path = MRZ_GitHub;
+			sourceTree = "<group>";
+		};
+		D1C2E40B22F9C072001A4179 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D1C2E40C22F9C072001A4179 /* AppDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		D676CB0091C87FBB8F07047A /* Pods */ = {
@@ -366,10 +385,10 @@
 				D1C2E40222F914C3001A4179 /* URLImage.swift in Sources */,
 				D1C2E3FF22F8CE11001A4179 /* Root.swift in Sources */,
 				D1C2E3FD22F8C3D2001A4179 /* String+Extension.swift in Sources */,
-				D1C2E3CA22F86364001A4179 /* ViewController.swift in Sources */,
+				D1C2E40D22F9C072001A4179 /* MRZViewController.swift in Sources */,
 				D1C2E3F122F8B2D3001A4179 /* User.swift in Sources */,
-				D1C2E3C822F86364001A4179 /* AppDelegate.swift in Sources */,
 				D1C2E3F922F8C396001A4179 /* ServiceManager.swift in Sources */,
+				D1C2E40E22F9C072001A4179 /* AppDelegate.swift in Sources */,
 				D1C2E3FA22F8C396001A4179 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,7 +397,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1C2E3DD22F86367001A4179 /* AirsideLabTests.swift in Sources */,
+				D1C2E40622F9BA29001A4179 /* FetchURLImageTests.swift in Sources */,
+				D1C2E41022F9C0B6001A4179 /* MRZViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
