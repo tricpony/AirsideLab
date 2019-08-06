@@ -20,7 +20,7 @@ extension UITableViewCell {
             switch result {
             case .success(let image):
                 self?.imageView?.image = image
-                tableView.reloadRows(at: [indexPath], with: .none)
+                tableView.reloadRows(at: [indexPath], with: .fade)
             case .failure:
                 return
             }
