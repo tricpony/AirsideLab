@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Struct to capture the root of the JSON where the git hub user array is nested
 struct Root: Decodable {
     enum CodingKeys: String, CodingKey {
         case users = "items"

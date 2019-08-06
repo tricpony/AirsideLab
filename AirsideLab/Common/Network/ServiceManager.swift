@@ -16,6 +16,7 @@ struct ServiceManager {
     /// - Parameters:
     ///   - arg: Github user's name to search for
     ///   - completion: call back closure returning either service success with payload or failure
+    /// - Returns: Returns the session manager
     func startGitHubSearchService(arg: String, completion:@escaping (Swift.Result<Data, Error>)->()) -> SessionManager? {
         guard let url = URL(string: API.endPoint) else { return nil }
         let configuration = URLSessionConfiguration.default

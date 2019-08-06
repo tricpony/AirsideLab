@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Struct to represent git hub user
 struct User: Decodable {
     enum CodingKeys: String, CodingKey {
         case userName = "login"

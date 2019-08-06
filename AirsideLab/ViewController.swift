@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     var firstname = ""
     var lastname = ""
-    var matchingGithubUsers = [User]()
+    var gitHubUsers = [User]()
 
     // must hang on to the var here or else it gets released and the service fails
     var sessionManager: SessionManager?
@@ -37,23 +37,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let constraint = bottomParseButtonConstraint {
             constraint.isActive = false
         }
-        
-        // fire service call
-        let arg = firstname.trim().urlEncoded + "+" + lastname.trim().urlEncoded
+        performService()
+    }
+
+    func performService() {
+        let arg = firstname.urlEncoded + "+" + lastname.urlEncoded
         sessionManager = ServiceManager().startGitHubSearchService(arg: arg) { [weak self] result in
             switch result {
             case .success(let data):
                 guard let root = JsonUtility<Root>.parseJSON(data) else { return }
                 let fetchedUsers = root.users
-                self?.matchingGithubUsers = fetchedUsers
+                self?.gitHubUsers = fetchedUsers
                 self?.tableView.reloadData()
             case .failure(let error):
                 print("Service Failed: \(String(describing: error))")
             }
         }
     }
-
+    
+    /// Parse the MRZ.  MRZ will always have 5 leading characters that can be ignored.
+    /// MRZ looks like -- P<USAROGGER<<MICHAEL<<<<<<<<<<<<<<<<<<<<<<<<
+    /// - Parameters:
+    ///   - mrz: The string to be parsed
+    /// - Returns: In the example above returns MICHEAL ROGGER
     func parseMRZ(_ mrz: String) -> String? {
+        guard mrz.count > 5 else { return nil }
         let index = mrz.index(mrz.startIndex, offsetBy: 5)
         let subMrz = mrz.suffix(from: index)
         let lastFirstNames = subMrz.components(separatedBy: "<<")
@@ -62,8 +70,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         firstname = firstname.replacingOccurrences(of: "<", with: " ")
         lastname = lastname.replacingOccurrences(of: "<", with: " ")
-        self.firstname = firstname
-        self.lastname = lastname
+        self.firstname = firstname.trim()
+        self.lastname = lastname.trim()
 
         return firstname + " " + lastname
     }
@@ -83,12 +91,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return matchingGithubUsers.count
+        return gitHubUsers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.nextCellForTableView(tableView, at: indexPath)
-        let user = matchingGithubUsers[indexPath.row]
+        let user = gitHubUsers[indexPath.row]
         cell.textLabel?.text = user.displayUsername
         cell.detailTextLabel?.text = user.displayScore
         cell.fillImage(url: user.avatarUrl, in: tableView, at: indexPath)
