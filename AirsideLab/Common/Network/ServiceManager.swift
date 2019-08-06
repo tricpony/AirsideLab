@@ -1,8 +1,8 @@
 //
 //  ServiceManager.swift
-//  DoorDashLab
+//  AirsideLab
 //
-//  Created by aarthur on 6/28/19.
+//  Created by aarthur on 8/5/19.
 //  Copyright © 2019 Gigabit LLC. All rights reserved.
 //
 
@@ -14,8 +14,7 @@ struct ServiceManager {
     
     /// Invokes store search API service
     /// - Parameters:
-    ///   - lat: latitude value
-    ///   - lng: longiture value
+    ///   - arg: Github user's name to search for
     ///   - completion: call back closure returning either service success with payload or failure
     func startGitHubSearchService(arg: String, completion:@escaping (Swift.Result<Data, Error>)->()) -> SessionManager? {
         guard let url = URL(string: API.endPoint) else { return nil }
@@ -25,7 +24,8 @@ struct ServiceManager {
         sessionManager.startRequestsImmediately = false
         sessionManager.request(url,
                           method: .get,
-                          parameters: ["q": arg])
+                          parameters: ["q": arg],
+                          encoding: NOURLEncoding())
             .validate()
             .responseData { response in
                 guard response.result.isSuccess else {
@@ -35,5 +35,17 @@ struct ServiceManager {
                 completion(.success(response.result.value!))
         }.resume()
         return sessionManager
+    }
+}
+
+public struct NOURLEncoding: ParameterEncoding {
+    public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+        var urlRequest = try urlRequest.asURLRequest()
+        guard let parameters = parameters as? [String: String] else { return urlRequest }
+        guard let arg = parameters.values.first else { return urlRequest }
+        guard let serviceAddress = urlRequest.urlRequest?.url?.absoluteString else { return urlRequest }
+
+        urlRequest.url = URL(string: serviceAddress + "?q=" + arg)
+        return urlRequest
     }
 }
