@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-typealias URLImageCompletion = (UIImage?, URLResponse?, Error?) -> Void
+typealias URLImageCompletion = (Swift.Result<UIImage?, Error>) -> Void
 
 /// Fetches a UIImage from a URL asynchronously, calling the completion handler upon success or failure.
 public struct URLImage {
@@ -18,12 +18,10 @@ public struct URLImage {
     /// Fetches a UIImage from a URL asynchronously, calling the completion handler upon success or failure.
     ///
     /// - parameter url: The URL of an image to fetch
-    /// - parameter completion: An escaping closure called on the Main thread, with
-    ///             image, urlResponse, or error
-    ///             when the call finishes or an error occurs
+    /// - parameter completion: An escaping closure called on the Main thread with result
     static func fetchImageURL(_ url: URL, completion: @escaping URLImageCompletion) {
         if let cachedImage = cache.object(forKey: url.absoluteString as NSString) {
-            completion(cachedImage, nil, nil)
+            completion(.success(cachedImage))
             return
         }
         let requestSession = URLSession.shared
@@ -39,7 +37,11 @@ public struct URLImage {
             }
 
             DispatchQueue.main.async {
-                completion(imageFromURL, urlResponse, error)
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(imageFromURL))
+                }
             }
             }.resume()
     }
